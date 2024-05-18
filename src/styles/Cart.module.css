@@ -1,0 +1,137 @@
+.cart {
+  width: calc(100% - 324px);
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty {
+  margin-top: 24px;
+  font-size: 24px;
+  line-height: 30px;
+  color: var(--light);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.item {
+  border-radius: 8px;
+  background: var(--bg);
+  width: 100%;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: 100px 2fr 1fr 1.5fr 1fr 16px;
+  align-items: center;
+  height: 70px;
+}
+
+.image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 6px;
+  height: 100%;
+}
+
+.info {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.category {
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--grey);
+}
+
+.price {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity span {
+  width: 40px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--dark-sea);
+}
+
+.minus,
+.plus {
+  background: var(--dark-sea);
+  border-radius: 6px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.quantity svg {
+  width: 17px;
+  height: 17px;
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.plus:hover,
+.minus:hover {
+  background: var(--violet);
+}
+
+.plus:hover svg,
+.minus:hover svg {
+  fill: rgba(255, 255, 255, 1);
+}
+
+.close {
+  cursor: pointer;
+}
+
+.close svg {
+  width: 16px;
+  height: 16px;
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.close:hover svg {
+  stroke: rgba(255, 255, 255, 1);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.total {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--grey);
+}
+
+.total span {
+  color: #fff;
+}

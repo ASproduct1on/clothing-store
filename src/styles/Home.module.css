@@ -1,0 +1,129 @@
+.home {
+  position: relative;
+  flex-grow: 1;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 119px;
+  line-height: 145px;
+  text-transform: uppercase;
+  color: var(--bg);
+  text-align: center;
+}
+
+.product {
+  position: relative;
+  padding-left: 42px;
+  display: flex;
+  align-items: stretch;
+  margin-top: 9px;
+}
+
+.subtitle {
+  line-height: 20px;
+  text-transform: uppercase;
+  color: var(--sea);
+}
+
+.head {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 51px;
+  text-transform: uppercase;
+  color: var(--light);
+  max-width: 500px;
+  margin: 10px 0 24px 0;
+}
+
+.image {
+  position: relative;
+  flex-grow: 1;
+  height: 250px;
+}
+
+.image img {
+  position: absolute;
+  bottom: -15%;
+  right: 10%;
+  max-width: unset;
+}
+
+.banner {
+  display: flex;
+  width: 100%;
+  height: 570px;
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.left:before,
+.left:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.left:before {
+  width: 204px;
+  height: 170px;
+  left: -25px;
+  bottom: 74px;
+  background: url(../images/shoe.png) no-repeat center/contain;
+}
+
+.left:after {
+  width: 269px;
+  height: 151px;
+  right: -25px;
+  bottom: -25px;
+  background: url(../images/devices.png) no-repeat center/contain;
+}
+
+.content {
+  color: var(--violet);
+  font-weight: 300;
+  font-size: 70px;
+  line-height: 85px;
+  text-align: center;
+}
+
+.content span {
+  line-height: 183px;
+  font-size: 150px;
+  display: block;
+}
+
+.more {
+  margin-top: 27px;
+}
+
+.right {
+  width: 50%;
+  position: relative;
+}
+
+.discount {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--bg);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+}
+
+.discount span {
+  color: var(--violet);
+  font-weight: 700;
+}
