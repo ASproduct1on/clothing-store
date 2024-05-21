@@ -1,24 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-// export const getCategories = createAsyncThunk(
-// 	'categories/getCategories',
-// 	async (_, thunkAPI) => {
-// 		try {
-// 			const res = await axios(`${BASE_URL}/categories`)
-// 			return res.data
-// 		} catch (err) {
-// 			console.log(err)
-// 			return thunkAPI.rejectWithValue(err)
-// 		}
-// 	}
-// )
+export const createUser = createAsyncThunk(
+	'users/createUsers',
+	async (_, thunkAPI) => {
+		try {
+			const res = await axios(`${BASE_URL}/users`, payload)
+			return res.data
+		} catch (err) {
+			console.log(err)
+			return thunkAPI.rejectWithValue(err)
+		}
+	}
+)
 
 const userSlice = createSlice({
 	name: 'user',
 	initialState: {
-		currentUser: [],
+		currentUser: {},
 		cart: [],
 		isLoading: false,
+		formType: 'signup',
+		showForm: false,
 	},
 	reducers: {
 		addItemToCart: (state, { payload }) => {
@@ -36,21 +38,23 @@ const userSlice = createSlice({
 			}
 			state.cart = newCart
 		},
+		toggleForm: (state, { payload }) => {
+			state.showForm = payload
+		},
 	},
 	extraReducers: builder => {
 		// 	builder.addCase(getCategories.pending, state => {
 		// 		state.isLoading = true
 		// 	})
-		// 	builder.addCase(getCategories.fulfilled, (state, { payload }) => {
-		// 		state.list = payload
-		// 		state.isLoading = false
-		// 	})
+		builder.addCase(createUser.fulfilled, (state, { payload }) => {
+			state.currentUser = payload
+		})
 		// 	builder.addCase(getCategories.rejected, state => {
 		// 		state.isLoading = false
 		// 	})
 	},
 })
 
-export const { addItemToCart } = userSlice.actions
+export const { addItemToCart, toggleForm } = userSlice.actions
 
 export default userSlice.reducer
