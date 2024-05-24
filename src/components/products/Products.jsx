@@ -5,7 +5,7 @@ import styles from '../../styles/Products.module.css'
 
 const Products = ({ title, style = {}, products = [], amount }) => {
 	const list = products.filter((_, i) => i < amount)
-	console.log(list)
+
 	return (
 		<section className={styles.products} style={style}>
 			{title && <h2>{title}</h2>}

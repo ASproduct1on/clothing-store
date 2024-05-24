@@ -4,6 +4,7 @@ import Footer from './components/footer/Footer.jsx'
 import Header from './components/header/Header.jsx'
 import AppRoutes from './components/routes/Routes.jsx'
 import Sidebar from './components/sidebar/Sidebar.jsx'
+import UserForm from './components/user/UserForm.jsx'
 import { getCategories } from './features/categories/categoriesSlice.js'
 import { getProducts } from './features/products/productsSlice.js'
 
@@ -18,6 +19,7 @@ function App() {
 	return (
 		<div>
 			<Header />
+			<UserForm />
 			<div className='container'>
 				<Sidebar />
 				<AppRoutes />

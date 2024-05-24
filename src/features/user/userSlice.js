@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { BASE_URL } from '../../utils/constants'
 
 export const createUser = createAsyncThunk(
 	'users/createUsers',
-	async (_, thunkAPI) => {
+	async (payload, thunkAPI) => {
 		try {
-			const res = await axios(`${BASE_URL}/users`, payload)
+			const res = await axios.post(`${BASE_URL}/users`, payload)
 			return res.data
 		} catch (err) {
 			console.log(err)
@@ -16,7 +18,7 @@ export const createUser = createAsyncThunk(
 const userSlice = createSlice({
 	name: 'user',
 	initialState: {
-		currentUser: {},
+		currentUser: null,
 		cart: [],
 		isLoading: false,
 		formType: 'signup',

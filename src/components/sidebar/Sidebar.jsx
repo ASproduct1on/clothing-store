@@ -10,23 +10,18 @@ const Sidebar = () => {
 			<div className={styles.title}>
 				<nav>
 					<ul className={styles.menu}>
-						{list?.map(
-							({ id, name }) => (
-								console.log(`list: ${name}`),
-								(
-									<li className='' key={id}>
-										<NavLink
-											className={({ isActive }) =>
-												`${styles.link} ${isActive ? styles.active : ''}`
-											}
-											to={`/categories/${id}`}
-										>
-											{name}
-										</NavLink>
-									</li>
-								)
-							)
-						)}
+						{list?.map(({ id, name }) => (
+							<li className='' key={id}>
+								<NavLink
+									className={({ isActive }) =>
+										`${styles.link} ${isActive ? styles.active : ''}`
+									}
+									to={`/categories/${id}`}
+								>
+									{name}
+								</NavLink>
+							</li>
+						))}
 					</ul>
 				</nav>
 			</div>
