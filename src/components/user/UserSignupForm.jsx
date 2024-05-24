@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { createUser } from '../../features/user/userSlice'
 import styles from '../../styles/User.module.css'
 
-const UserSignupForm = ({ closeForm }) => {
+const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
 	const dispatch = useDispatch()
 	const [values, setValues] = useState({
 		name: '',
@@ -85,7 +85,12 @@ const UserSignupForm = ({ closeForm }) => {
 					/>
 				</div>
 
-				<div className={styles.link}>I already have an account</div>
+				<div
+					className={styles.link}
+					onClick={() => toggleCurrentFormType('login')}
+				>
+					I already have an account
+				</div>
 
 				<button type='submit'>Create an account</button>
 			</form>

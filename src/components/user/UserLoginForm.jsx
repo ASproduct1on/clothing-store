@@ -1,15 +1,13 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createUser } from '../../features/user/userSlice'
+import { loginUser } from '../../features/user/userSlice'
 import styles from '../../styles/User.module.css'
 
-const UserLoginForm = ({ closeForm }) => {
+const UserLoginForm = ({ toggleCurrentFormType, closeForm }) => {
 	const dispatch = useDispatch()
 	const [values, setValues] = useState({
-		name: '',
 		email: '',
 		password: '',
-		avatar: '',
 	})
 
 	const handleChange = ({ target: { value, name } }) => {
@@ -23,7 +21,7 @@ const UserLoginForm = ({ closeForm }) => {
 		console.log('send!')
 		if (!isNotEmpty) return
 
-		dispatch(createUser(values))
+		dispatch(loginUser(values))
 		closeForm()
 	}
 	return (
@@ -34,7 +32,7 @@ const UserLoginForm = ({ closeForm }) => {
 				</svg>
 			</div>
 
-			<div className={styles.title}>Sign Up</div>
+			<div className={styles.title}>Log in</div>
 
 			<form className={styles.form} onSubmit={handleSubmit}>
 				<div className={styles.group}>
@@ -43,18 +41,6 @@ const UserLoginForm = ({ closeForm }) => {
 						placeholder='Your email'
 						name='email'
 						value={values.email}
-						autoComplete='off'
-						onChange={handleChange}
-						required
-					/>
-				</div>
-
-				<div className={styles.group}>
-					<input
-						type='name'
-						placeholder='Your name'
-						name='name'
-						value={values.name}
 						autoComplete='off'
 						onChange={handleChange}
 						required
@@ -73,7 +59,12 @@ const UserLoginForm = ({ closeForm }) => {
 					/>
 				</div>
 
-				<div className={styles.link}>Create an account</div>
+				<div
+					className={styles.link}
+					onClick={() => toggleCurrentFormType('signup')}
+				>
+					Create an account
+				</div>
 
 				<button type='submit'>Enter to account</button>
 			</form>
